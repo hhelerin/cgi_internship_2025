@@ -1,4 +1,6 @@
 package com.example.cgi_internship_2025.model;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -27,4 +29,7 @@ public class AircraftType {
     private String seatLayoutType;
     @Size(max = 255)
     private String details;
+
+    @OneToMany(mappedBy = "aircraft")
+    private List<AircraftType> aircraftTypes = new ArrayList<>();
 }
