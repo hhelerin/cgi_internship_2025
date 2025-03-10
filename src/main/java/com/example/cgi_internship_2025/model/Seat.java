@@ -1,6 +1,7 @@
 package com.example.cgi_internship_2025.model;
-import java.util.UUID;
 
+import com.example.cgi_internship_2025.EReclineType;
+import com.example.cgi_internship_2025.ESeatClass;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,11 +16,10 @@ import lombok.*;
 @Table(name = "seats")
 public class Seat {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotNull
-    private enum type {economy, premium, business};
-
+    private ESeatClass seatClass;
     @NotNull
     @Column(nullable = false)
     @Size(max = 128)
@@ -36,13 +36,16 @@ public class Seat {
     @NotNull
     private Boolean legroom;
     @NotNull
-    private enum recline{flat, recline, standard, none};
+    private EReclineType reclineType;
     @NotNull
     @Column(name = "emergency_exit", nullable = false)
     private Boolean emergencyExit;
     @Column(name = "has_tv", nullable = false)
     @NotNull
     private Boolean tv;
+    @Column(nullable = false)
+    @NotNull
+    private Boolean bulkhead;
     @Column(name = "has_power_port", nullable = false)
     @NotNull
     private Boolean powerPort;

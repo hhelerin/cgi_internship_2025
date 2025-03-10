@@ -1,10 +1,6 @@
 package com.example.cgi_internship_2025.model;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Builder
@@ -14,12 +10,12 @@ import lombok.*;
 @Table(name = "tickets")
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "flight_details", nullable = false)
-    private FlightDetails flightDetails;
+    private Flight flight;
 
     @ManyToOne
     @JoinColumn(name = "seating_plans", nullable = false)

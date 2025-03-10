@@ -5,25 +5,24 @@ import java.util.UUID;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "airports")
 public class Airport {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Size(max = 128)
     private String name;
     @NotNull
     @Column(nullable = false)
     @Size(max = 10)
-    private String IATA_code;
+    private String airportCode;
     @Size(max = 128)
     private String country;
     @Size(max = 128)
@@ -32,8 +31,8 @@ public class Airport {
     private String address;
 
     @OneToMany(mappedBy = "toAirport")
-    private List<Flight> departingFlights = new ArrayList<>();
+    private List<Route> departingRoutes = new ArrayList<>();
 
     @OneToMany(mappedBy = "fromAirport")
-    private List<Flight> arrivingFlights = new ArrayList<>();
+    private List<Route> arrivingRoutes = new ArrayList<>();
 }

@@ -3,31 +3,29 @@ package com.example.cgi_internship_2025.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "flight_schedule")
 public class FlightSchedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "flight_id", nullable = false)
-    private Flight flight;
+    private Route route;
 
     @NotNull
-    @Size(min = 7, max = 7)
+    @Size(min = 3, max = 3)
     @Column(nullable = false)
     private String weekday;
     @NotNull
@@ -36,8 +34,8 @@ public class FlightSchedule {
     @NotNull
     @Column(name = "arrival_time", nullable = false)
     private LocalTime arrivalTime;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private LocalDate validFrom;
+    private LocalDate validUntil;
     @Column(name = "base_price", nullable = false)
     private BigDecimal basePrice;
 

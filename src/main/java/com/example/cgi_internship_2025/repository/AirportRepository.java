@@ -8,7 +8,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface AirportRepository extends JpaRepository<Airport, UUID> {
-    Optional<Airport> findByIATACode(String iataCode);
+public interface AirportRepository extends JpaRepository<Airport, Long> {
+    Optional<Airport> findByAirportCode(String airportCode);
+    Optional<Airport> findByCity(String city);
+    Optional<Airport> findByCountry(String country);
 }
 

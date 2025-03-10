@@ -8,17 +8,19 @@ import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "aircraft_types")
 public class AircraftType {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Size(max = 128)
     private String name;
     @Size(max = 128)
@@ -31,5 +33,5 @@ public class AircraftType {
     private String details;
 
     @OneToMany(mappedBy = "aircraft")
-    private List<AircraftType> aircraftTypes = new ArrayList<>();
+    private List<SeatingPlan> seatingPlans = new ArrayList<>();
 }

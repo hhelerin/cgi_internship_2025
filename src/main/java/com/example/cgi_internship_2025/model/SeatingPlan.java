@@ -13,7 +13,7 @@ import java.util.UUID;
 public class SeatingPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "seat_id", nullable = false)

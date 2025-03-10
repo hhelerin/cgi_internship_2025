@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "airlines")
 public class Airline {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Size(max = 128)
     private String name;
@@ -24,6 +24,6 @@ public class Airline {
     private String additionalInfo;
 
     @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Flight> flights = new ArrayList<>();
+    private List<Route> routes = new ArrayList<>();
 
 }

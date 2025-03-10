@@ -4,7 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa626cd6-2d9f-45e3-9a56-a41b708e3482" name="Changes" comment="" />
+    <list default="true" id="aa626cd6-2d9f-45e3-9a56-a41b708e3482" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/EReclineType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/ESeatType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/controller/FlightController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/controller/SeatSelectionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/dto/FlightDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/dto/FlightWithSeatsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/dto/SeatDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/dto/TicketDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Route.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/service/FlightDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/service/FlightService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/service/SeatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/8.12.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/8.12.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/8.12.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/8.12.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/cgi_internship_2025.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/../build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/AircraftType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/AircraftType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Airline.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Airline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Airport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/FlightDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/FlightSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/FlightSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/AirportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/AirportRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightDetailsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/FlightScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/SeatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/SeatRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/SeatingPlanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/example/cgi_internship_2025/repository/SeatingPlanRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +86,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "spring.configuration.checksum": "cd38a6fab20eb6bdbf5244f7d8fa1648",
     "vue.rearranger.settings.migration": "true"
   }
@@ -74,6 +113,7 @@
       <updated>1741275892034</updated>
       <workItem from="1741275893167" duration="2066000" />
       <workItem from="1741281399171" duration="10495000" />
+      <workItem from="1741376714458" duration="54000" />
     </task>
     <servers />
   </component>

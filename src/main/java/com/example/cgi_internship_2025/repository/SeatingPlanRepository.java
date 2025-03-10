@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface SeatingPlanRepository extends JpaRepository<SeatingPlan, UUID> {
-    List<SeatingPlan> findByAircraftID(AircraftType aircraft);
+public interface SeatingPlanRepository extends JpaRepository<SeatingPlan, Long> {
+    List<SeatingPlan> findByAircraft(AircraftType aircraft);
 }
 
