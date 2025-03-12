@@ -1,10 +1,8 @@
 package com.example.cgi_internship_2025.model;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,5 +31,5 @@ public class AircraftType {
     private String details;
 
     @OneToMany(mappedBy = "aircraft")
-    private List<SeatingPlan> seatingPlans = new ArrayList<>();
+    private List<SeatMapping> seatMappings = new ArrayList<>();
 }

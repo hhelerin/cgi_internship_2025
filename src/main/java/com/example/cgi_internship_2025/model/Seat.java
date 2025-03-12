@@ -32,9 +32,6 @@ public class Seat {
     @Column(name = "is_aisle_seat", nullable = false)
     @NotNull
     private Boolean aisle;
-    @Column(name = "has_extra_legroom", nullable = false)
-    @NotNull
-    private Boolean legroom;
     @NotNull
     private EReclineType reclineType;
     @NotNull
@@ -43,9 +40,6 @@ public class Seat {
     @Column(name = "has_tv", nullable = false)
     @NotNull
     private Boolean tv;
-    @Column(nullable = false)
-    @NotNull
-    private Boolean bulkhead;
     @Column(name = "has_power_port", nullable = false)
     @NotNull
     private Boolean powerPort;
@@ -55,5 +49,4 @@ public class Seat {
     @Size(max = 128)
     @Column(name = "additional_info")
     private String additionalInfo;
-
 }

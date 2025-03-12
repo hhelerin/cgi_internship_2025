@@ -2,15 +2,14 @@ package com.example.cgi_internship_2025.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import java.util.UUID;
 
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "seating_plans")
-public class SeatingPlan {
+@Table(name = "seat_mappings")
+public class SeatMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

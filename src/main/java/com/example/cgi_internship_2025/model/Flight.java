@@ -1,11 +1,14 @@
 package com.example.cgi_internship_2025.model;
-import jakarta.persistence.*;
-import lombok.*;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-import java.time.LocalDate;
 
 
 @Builder
@@ -13,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "flight_details")
+@Table(name = "flight")
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +29,6 @@ public class Flight {
 
     @OneToMany(mappedBy = "flight")
     private List<Ticket> tickets = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "flight_id", nullable = false)
-    private Route route;
 
     @ManyToOne
     @JoinColumn(name = "flight_schedule_id", nullable = false)

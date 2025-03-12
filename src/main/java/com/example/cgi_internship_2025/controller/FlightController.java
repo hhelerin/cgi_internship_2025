@@ -2,6 +2,7 @@ package com.example.cgi_internship_2025.controller;
 
 import com.example.cgi_internship_2025.dto.FlightDto;
 import com.example.cgi_internship_2025.service.FlightService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,9 @@ import java.util.List;
 @RequestMapping("/api/flights")
 public class FlightController {
 
+    @Autowired
     private FlightService flightService;
+
 
     @GetMapping("/search")
     public ResponseEntity<List<FlightDto>> searchFlights(
@@ -26,4 +29,10 @@ public class FlightController {
         List<FlightDto> flights = flightService.findFlightsByCriteria(from, to, date);
         return ResponseEntity.ok(flights);
     }
+
+    @GetMapping("/upcoming")
+    public List<FlightDto> getUpcomingFlights() {
+        return flightService.getAllUpcoming();
+    }
+
 }

@@ -19,7 +19,6 @@ public class FlightDto {
     private LocalDate arrivalDate;
     private LocalTime departureTime;
     private LocalTime arrivalTime;
-    private int availableSeats;
-    private String aircraftType;
+    private int basePrice;
 
 }

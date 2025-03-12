@@ -5,16 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class TicketDto{
-    private UUID id;
-    private String number;
-    private UUID flightDetailsId;
-    private UUID seatingPlanId;
-
+    private Long id;
+    private String ticketNumber;
+    private String flightNumber;
+    private FlightDto flightDto;
+    private String seatNumber;
 }

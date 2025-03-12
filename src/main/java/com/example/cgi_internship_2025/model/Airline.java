@@ -1,17 +1,20 @@
 package com.example.cgi_internship_2025.model;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "airlines")
 public class Airline {
     @Id

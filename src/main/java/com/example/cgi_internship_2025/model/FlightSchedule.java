@@ -3,9 +3,11 @@ package com.example.cgi_internship_2025.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -21,11 +23,11 @@ public class FlightSchedule {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "flight_id", nullable = false)
+    @JoinColumn(name = "route_id", nullable = false)
     private Route route;
 
     @NotNull
-    @Size(min = 3, max = 3)
+    @Size(min = 7, max = 7)
     @Column(nullable = false)
     private String weekday;
     @NotNull
@@ -37,7 +39,7 @@ public class FlightSchedule {
     private LocalDate validFrom;
     private LocalDate validUntil;
     @Column(name = "base_price", nullable = false)
-    private BigDecimal basePrice;
+    private int basePrice;
 
     @ManyToOne
     @JoinColumn(name = "aircraft_type", nullable = false)

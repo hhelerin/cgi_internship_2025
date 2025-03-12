@@ -1,5 +1,4 @@
 package com.example.cgi_internship_2025.model;
-import java.util.UUID;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +18,5 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name = "seating_plans", nullable = false)
-    private SeatingPlan seatingPlan;
+    private SeatMapping seatMapping;
 }
