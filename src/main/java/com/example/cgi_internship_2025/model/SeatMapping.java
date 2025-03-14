@@ -1,10 +1,14 @@
 package com.example.cgi_internship_2025.model;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -26,8 +30,11 @@ public class SeatMapping {
     @Column(nullable = false)
     private int rowNumber;
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "seat_column_char", nullable = false)
     private char seatColumnChar;
 
     private String additionalInfo;
+
+    @OneToMany(mappedBy = "seatMapping")
+    private List<Ticket> tickets = new ArrayList<>();
 }

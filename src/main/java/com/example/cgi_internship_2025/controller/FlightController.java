@@ -2,13 +2,16 @@ package com.example.cgi_internship_2025.controller;
 
 import com.example.cgi_internship_2025.dto.AirportDto;
 import com.example.cgi_internship_2025.dto.FlightDto;
+import com.example.cgi_internship_2025.dto.FlightWithSeatsDto;
 import com.example.cgi_internship_2025.service.AirportService;
 import com.example.cgi_internship_2025.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -51,5 +54,18 @@ public class FlightController {
         List<FlightDto> flights = flightService.getAllUpcoming();
         model.addAttribute("flights", flights);
         return "flightlist";
+    }
+    @GetMapping("/{id}")
+    public String getFlightDetails(@PathVariable Long id, @RequestParam int passengers, Model model) {
+        FlightWithSeatsDto flight = flightService.getFlightWitSeatsDtoById(id);
+        model.addAttribute("flight", flight);
+        model.addAttribute("passengers", passengers);
+        return "flightdetails";
+    }
+
+    @GetMapping("/{flightId}/details")
+    public ResponseEntity<FlightWithSeatsDto> getFlightDetails(@PathVariable Long flightId) {
+        FlightWithSeatsDto flightDetails = flightService.getFlightWitSeatsDtoById(flightId);
+        return ResponseEntity.ok(flightDetails);
     }
 }

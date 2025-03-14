@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Flight Details</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<header>
+  <h1 th:text="'Flight ' + ${flight.flightNumber} + ' Details'"></h1>
+  <div class="passenger-selection">
+    <label for="passengerCount">Passengers:</label>
+    <button type="button" onclick="decreasePassengers()">-</button>
+    <input type="number" id="passengerCount" name="passengers" min="1" value="1" th:value="${passengers}" />
+    <button type="button" onclick="increasePassengers()">+</button>
+  </div>
+</header>
+
+<script>
+  function increasePassengers() {
+    const input = document.getElementById("passengerCount");
+    input.value = parseInt(input.value || 0) + 1;
+  }
+
+  function decreasePassengers() {
+    const input = document.getElementById("passengerCount");
+    const value = parseInt(input.value || 0);
+    if (value > 1) {
+      input.value = value - 1;
+    }
+  }
+</script>
+
+<div class="seat-map">
+  <div class="row" th:each="row : ${flight.seatList}">
+    <div class="seat-row" th:each="seat : ${row}">
+      <div th:class="'seat ' + (${seat.available} ? 'available' : 'unavailable') + (seat.selected ? ' selected' : '')"
+           th:text="${seat.seatRowNumber + '' + seat.seatColumnChar}"></div>
+      <div th:if="${seat.aisle}" class="aisle"></div>
+    </div>
+  </div>
+</div>
+
+<button>Confirm Selection</button>
+</body>
+</html>

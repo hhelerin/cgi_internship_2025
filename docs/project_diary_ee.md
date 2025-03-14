@@ -89,8 +89,8 @@ Vaata andmebaasiskeemi kataloogis docs.
 - teha kasutajakontode süsteem, saata piletid e-maili peale
 - võtta kasutusele logimine sujuvamaks arenduseks
 - pika tabeli lehekülgedeks jaotamine
-- korraliku api-ga suhtleva kliendi tegemine (Õpime sel semestril Javascripti ja typescripti)
+- korraliku api-ga suhtleva kliendi tegemine (Õpime seada käesoleval semestril Javascripti ja typescripti, Reactiga)
 
 ## Lõppsõna
-Kasutasin OpenAI GPT-4 keelemudelit enamasti selleks, et uurida parimate praktikate kohta.   
-Olen tänulik, et selle projekti ette võtsin, sain kinnitust, et valisin ümberõppimiseks õige eriala. 
+Kasutasin OpenAI GPT-4 keelemudelit enamasti selleks, et uurida parimate praktikate kohta, samuti sain abi jpa ja thymeleaf'i süntaksi asjus.       
+Olen tänulik, et selle projekti ette võtsin, sain kinnitust, et valisin ümberõppimiseks õige eriala - see on huvitav ja meeldib. 

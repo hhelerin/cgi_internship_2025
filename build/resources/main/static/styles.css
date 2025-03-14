@@ -88,4 +88,66 @@ button:hover {
     text-decoration: underline;
 }
 
+.seat-map {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 1px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.available {
+    background-color: white;
+    color: black;
+}
+
+.unavailable {
+    background-color: darkred;
+    color: white;
+}
+
+.selected {
+    background-color: green;
+    color: white;
+}
+
+.aisle {
+    width: 20px;
+    height: 40px;
+    margin: 2px;
+    background-color: transparent;
+}
+
+.passenger-selection {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.passenger-selection button {
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+}
+
+.passenger-selection input[type="number"] {
+    width: 3rem;
+    text-align: center;
+}
+
 

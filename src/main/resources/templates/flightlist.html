@@ -29,7 +29,9 @@
     <td th:text="${flightDto.getCalculatedPrice()}"></td>
     <td th:text="${flightDto.getAvailableSeats()}"></td>
     <td>
-      <button>Choose</button>
+      <a th:href="@{/flightland/{flightId}(flightId=${flightDto.getFlightId()}, passengers=${passengers != null ? passengers : 1})}">
+        <button>Choose</button>
+      </a>
     </td>
   </tr>
   </tbody>
