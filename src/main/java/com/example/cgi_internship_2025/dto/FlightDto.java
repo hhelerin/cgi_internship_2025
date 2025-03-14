@@ -16,6 +16,8 @@ public class FlightDto {
     private String flightNumber;
     private String departureAirport;
     private String arrivalAirport;
+    private String departureAirportName;
+    private String arrivalAirportName;
     private LocalDate departureDate;
     private LocalDate arrivalDate;
     private LocalTime departureTime;

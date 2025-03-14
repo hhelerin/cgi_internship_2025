@@ -53,6 +53,11 @@ button:hover {
     font-weight: lighter;
 }
 
+td small {
+    font-size: 0.8em;
+    color: #333;
+}
+
 .logo {
     font-size: 72px;
     font-weight: bold;

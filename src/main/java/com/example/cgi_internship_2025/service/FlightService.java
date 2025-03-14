@@ -32,6 +32,18 @@ public class FlightService {
         return flightRepository.findFlightsByAirportAndDate(from, to, date, passengers);
     }
 
+    public List<FlightDto> searchFlightsByDate(LocalDate date, int passengers) {
+        return flightRepository.findByDate(date, passengers);
+    }
+
+    public List<FlightDto> searchFlightsFrom(String from, LocalDate date,int passengers) {
+        return flightRepository.findByFromAndDate(from, date, passengers);
+    }
+
+    public List<FlightDto> searchFlightsTo(String to, LocalDate date, int passengers) {
+        return flightRepository.findByToAndDate(to, date, passengers);
+    }
+
     public FlightWithSeatsDto getFlightWitSeatsDtoById(Long id) {
         FlightWithSeatsDto flightWithSeatsDto = flightRepository.getFlightWithSeatsDtoById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Flight with ID " + id + " not found."));
@@ -46,7 +58,6 @@ public class FlightService {
 
         return flightWithSeatsDto;
     }
-
 
 }
 

@@ -21,10 +21,21 @@
   </tr>
   </thead>
   <tbody>
+  <tr th:if="${flights.empty}">
+    <td colspan="7" style="text-align: center; padding: 20px;">
+      No flights available. Try searching with different criteria.
+    </td>
+  </tr>
   <tr th:each="flightDto : ${flights}">
     <td th:text="${flightDto.getFlightNumber()}"></td>
-    <td th:text="${flightDto.getDepartureAirport()}"></td>
-    <td th:text="${flightDto.getArrivalAirport()}"></td>
+    <td>
+      <div th:text="${flightDto.getDepartureAirport()}"></div>
+      <small th:text="${flightDto.getDepartureAirportName()}" ></small>
+    </td>
+    <td>
+      <div th:text="${flightDto.getArrivalAirport()}"></div>
+      <small th:text="${flightDto.getArrivalAirportName()}" ></small>
+    </td>
     <td th:text="${flightDto.getDepartureDate()}"></td>
     <td th:text="${flightDto.getCalculatedPrice()}"></td>
     <td th:text="${flightDto.getAvailableSeats()}"></td>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Routes</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Available Routes</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Airline</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${routes.empty}">
+    <td colspan="5" style="text-align: center; padding: 20px;">
+      No routes available.
+    </td>
+  </tr>
+  <tr th:each="routeDto : ${routes}">
+
+    <td>
+      <span th:text="${routeDto.fromAirportCode}"></span><br>
+      <small th:text="${routeDto.fromAirportName}"></small>
+    </td>
+    <td>
+      <span th:text="${routeDto.toAirportCode}"></span><br>
+      <small th:text="${routeDto.toAirportName}"></small>
+    </td>
+    <td th:text="${routeDto.airline}"></td>
+    <td><a th:href="@{/flightland/}">
+      <button>See flights</button>
+    </a></td>
+
+  </tr>
+  </tbody>
+</table>
+
+<a th:href="@{/flightland/}">Back to Home</a>
+</body>
+</html>

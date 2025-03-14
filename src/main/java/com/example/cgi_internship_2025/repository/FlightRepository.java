@@ -12,12 +12,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
-            "r.fromAirport.airportCode, r.toAirport.airportCode, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
             "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
             + "FROM Flight f "
             + "JOIN f.flightSchedule.route r "
@@ -33,20 +32,20 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
                                                 @Param("passengers") int passengers);
 
 
-
     @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
-            "r.fromAirport.airportCode, r.toAirport.airportCode, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
             "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
             + "FROM Flight f "
             + "JOIN f.flightSchedule.route r "
             + "JOIN f.flightSchedule fs " +
             "WHERE f.date  = :date " +
             "ORDER BY f.date, fs.departureTime, r.toAirport.airportCode")
-    List<FlightDto> findFlightsByDate(@Param("date") LocalDate date);
+    List<FlightDto> findFlightsByDate(@Param("date") LocalDate date,
+                                      @Param("passengers") int passengers);
 
 
     @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
-            "r.fromAirport.airportCode, r.toAirport.airportCode, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
             "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
             + "FROM Flight f "
             + "JOIN f.flightSchedule.route r "
@@ -55,16 +54,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
             "ORDER BY f.date, fs.departureTime, r.toAirport.airportCode")
     List<FlightDto> findAllUpcomingFlightsInfo();
 
-
-    @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
-            "r.fromAirport.airportCode, r.toAirport.airportCode, " +
-            "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
-            + "FROM Flight f "
-            + "JOIN f.flightSchedule.route r "
-            + "JOIN f.flightSchedule fs " +
-            "WHERE f.date  = :search "+
-            "ORDER BY f.date, fs.departureTime, r.toAirport.airportCode")
-    List<FlightDto> findFlightsBySearchString(@Param("search") String search);
 
     @Query("SELECT new com.example.cgi_internship_2025.dto.FlightWithSeatsDto(f.id, r.flightNumber, " +
             "r.fromAirport.airportCode, r.toAirport.airportCode, " +
@@ -76,5 +65,42 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     Optional<FlightWithSeatsDto> getFlightWithSeatsDtoById(@Param("id") Long id);
 
 
-}
+    @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
+            "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
+            + "FROM Flight f "
+            + "JOIN f.flightSchedule.route r "
+            + "JOIN f.flightSchedule fs " +
+            "WHERE f.date  = :date "+
+            "ORDER BY f.date, fs.departureTime, r.fromAirport.airportCode")
+    List<FlightDto> findByDate(@Param("date") LocalDate date,
+                               @Param("passengers") int passengers);
 
+
+    @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
+            "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
+            + "FROM Flight f "
+            + "JOIN f.flightSchedule.route r "
+            + "JOIN f.flightSchedule fs " +
+            "WHERE f.date  = :date " +
+            "AND r.fromAirport.airportCode  = :from " +
+            "ORDER BY r.toAirport.airportCode, fs.basePrice")
+    List<FlightDto> findByFromAndDate(@Param("from") String from,
+                                      @Param("date") LocalDate date,
+                                      @Param("passengers") int passengers);
+
+
+    @Query("SELECT new com.example.cgi_internship_2025.dto.FlightDto(f.id, r.flightNumber, " +
+            "r.fromAirport.airportCode, r.toAirport.airportCode, r.fromAirport.name, r.toAirport.name, " +
+            "f.date, f.date, fs.departureTime, fs.arrivalTime, f.availableSeats, fs.basePrice) "
+            + "FROM Flight f "
+            + "JOIN f.flightSchedule.route r "
+            + "JOIN f.flightSchedule fs " +
+            "WHERE f.date  = :date " +
+            "AND r.toAirport.airportCode  = :to " +
+            "ORDER BY f.date, fs.departureTime, r.fromAirport.airportCode")
+    List<FlightDto> findByToAndDate(@Param("to") String to,
+                                    @Param("date") LocalDate date,
+                                    @Param("passengers") int passengers);
+}

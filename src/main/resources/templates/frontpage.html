@@ -2,17 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>FlightLand - Choosing flights made easy</title>
-  <link rel="stylesheet" th:href="@{/styles.css}">
-  <script src="/js/search.js"></script>
-</head>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+  </head>
 <body>
 
 <!-- Header with Logo and Menu -->
 <header style="text-align: center; padding: 20px;">
-  <div style="display: flex; align-items: center; justify-content: left;">
-    <img th:src="@{/logo.png}" alt="FlightLand Logo" style="width: 200px; margin-right: 10px;">
-    <div class="logo" >FlightLand</div>
-  </div>
+  <a th:href="@{/flightland/}" style="text-decoration: none; color: inherit;">
+    <div style="display: flex; align-items: center; justify-content: left;">
+      <img th:src="@{/logo.png}" alt="FlightLand Logo" style="width: 200px; margin-right: 10px;">
+      <div class="logo" >FlightLand</div>
+    </div>
+    <a/>
   <div class="slogan">Choosing flights made easy</div>
   <nav style="margin-top: 15px;">
     <ul class="menu">
