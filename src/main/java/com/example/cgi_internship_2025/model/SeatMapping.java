@@ -27,7 +27,7 @@ public class SeatMapping {
     private int rowNumber;
     @NotNull
     @Column(nullable = false)
-    private char seatInRow;
+    private char seatColumnChar;
 
     private String additionalInfo;
 }

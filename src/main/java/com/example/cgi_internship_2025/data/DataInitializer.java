@@ -184,16 +184,16 @@ public class DataInitializer implements CommandLineRunner {
                         e4f, e5a, e5c, e5d, e5f, e6a, e6c, e6d, e6f, e7a, e7c, e7d, e7f,e8a, e8c, e8d, e8f, e9a, e9c, e9d, e9f, e10a, e10c,
                         e10d, e10f, e11a, e11c, e11d, e11f, e12a, e12c, e12d, e12f, e13a, e13c, e13d, e13f, e14a, e14c, e14d, e14f));
 
-        FlightSchedule fs1 = new FlightSchedule(null, route1, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:25"), LocalDate.now(), LocalDate.of(9999, 12, 31), 89, embraer);
-        FlightSchedule fs2 = new FlightSchedule(null, route1, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("14:00"), LocalDate.now(), LocalDate.of(9999, 12, 31), 99, embraer);
-        FlightSchedule fs3 = new FlightSchedule(null, route2, "12345--", LocalTime.parse("09:00"), LocalTime.parse("09:50"), LocalDate.now(), LocalDate.of(9999, 12, 31), 29, embraer);
-        FlightSchedule fs4 = new FlightSchedule(null, route2, "1234567", LocalTime.parse("15:10"), LocalTime.parse("16:00"), LocalDate.now(), LocalDate.of(9999, 12, 31), 49, embraer);
-        FlightSchedule fs5 = new FlightSchedule(null, route3, "1--45--", LocalTime.parse("21:20"), LocalTime.parse("22:45"), LocalDate.now(), LocalDate.of(9999, 12, 31), 259, embraer);
-        FlightSchedule fs6 = new FlightSchedule(null, route3, "1234567", LocalTime.parse("11:00"), LocalTime.parse("12:25"), LocalDate.now(), LocalDate.of(9999, 12, 31), 229, embraer);
-        FlightSchedule fs7 = new FlightSchedule(null, route4, "1234567", LocalTime.parse("06:50"), LocalTime.parse("08:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer);
-        FlightSchedule fs8 = new FlightSchedule(null, route4, "1234567", LocalTime.parse("18:35"), LocalTime.parse("20:15"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer);
-        FlightSchedule fs9 = new FlightSchedule(null, route5, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer);
-        FlightSchedule fs10 = new FlightSchedule(null, route5, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("13:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer);
+        FlightSchedule fs1 = new FlightSchedule(null, route1, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:25"), LocalDate.now(), LocalDate.of(9999, 12, 31), 89, embraer, new ArrayList<>());
+        FlightSchedule fs2 = new FlightSchedule(null, route1, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("14:00"), LocalDate.now(), LocalDate.of(9999, 12, 31), 99, embraer, new ArrayList<>());
+        FlightSchedule fs3 = new FlightSchedule(null, route2, "12345--", LocalTime.parse("09:00"), LocalTime.parse("09:50"), LocalDate.now(), LocalDate.of(9999, 12, 31), 29, embraer, new ArrayList<>());
+        FlightSchedule fs4 = new FlightSchedule(null, route2, "1234567", LocalTime.parse("15:10"), LocalTime.parse("16:00"), LocalDate.now(), LocalDate.of(9999, 12, 31), 49, embraer, new ArrayList<>());
+        FlightSchedule fs5 = new FlightSchedule(null, route3, "1--45--", LocalTime.parse("21:20"), LocalTime.parse("22:45"), LocalDate.now(), LocalDate.of(9999, 12, 31), 259, embraer, new ArrayList<>());
+        FlightSchedule fs6 = new FlightSchedule(null, route3, "1234567", LocalTime.parse("11:00"), LocalTime.parse("12:25"), LocalDate.now(), LocalDate.of(9999, 12, 31), 229, embraer, new ArrayList<>());
+        FlightSchedule fs7 = new FlightSchedule(null, route4, "1234567", LocalTime.parse("06:50"), LocalTime.parse("08:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
+        FlightSchedule fs8 = new FlightSchedule(null, route4, "1234567", LocalTime.parse("18:35"), LocalTime.parse("20:15"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
+        FlightSchedule fs9 = new FlightSchedule(null, route5, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
+        FlightSchedule fs10 = new FlightSchedule(null, route5, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("13:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
 
         flightScheduleRepository.saveAll(List.of(fs1, fs2, fs3, fs4, fs5, fs6, fs7, fs8, fs9, fs10));
 

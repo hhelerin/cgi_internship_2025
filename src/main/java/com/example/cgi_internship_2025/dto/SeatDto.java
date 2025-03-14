@@ -9,10 +9,12 @@ import lombok.Data;
 @AllArgsConstructor
 public class SeatDto {
     private Long seatingPlanId;
+    private Long flightId;
     private int seatRowNumber;
     private char seatColumnChar;
-    private boolean extra_legroom;
-    private ESeatClass seatType;
+    private boolean isWindow;
+    private boolean isAisle;
+    private ESeatClass seatClass;
     private EReclineType reclineType;
     private boolean emergencyExit;
     private boolean tv;

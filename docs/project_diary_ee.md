@@ -73,6 +73,8 @@ Vaata andmebaasiskeemi kataloogis docs.
 	Lahendus: vaja on lennu andmeid lendude nimekirja kuvamiseks, otsingu 
 	ja sorteerimise funktsionaalsust, lennuki istekohtade vaadet,
 	istekohtade soovitamist ja broneerimist.
+
+## 5) Controllerite ja teenuskihi äriloogika disain
 	   
 	   
 ## Vajalikud meetodid rakenduses:

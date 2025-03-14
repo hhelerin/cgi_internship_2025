@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Flights</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+
+</head>
+<body>
+<h1>Upcoming flights</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Flight Number</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Date</th>
+    <th>Price</th>
+    <th>Available Seats</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="flightDto : ${flights}">
+    <td th:text="${flightDto.getFlightNumber()}"></td>
+    <td th:text="${flightDto.getDepartureAirport()}"></td>
+    <td th:text="${flightDto.getArrivalAirport()}"></td>
+    <td th:text="${flightDto.getDepartureDate()}"></td>
+    <td th:text="${flightDto.getCalculatedPrice()}"></td>
+    <td th:text="${flightDto.getAvailableSeats()}"></td>
+    <td>
+      <button>Choose</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a th:href="@{/flightland/}">Back to Search</a>
+</body>
+</html>

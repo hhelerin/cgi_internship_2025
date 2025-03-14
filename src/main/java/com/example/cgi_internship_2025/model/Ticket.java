@@ -2,7 +2,7 @@ package com.example.cgi_internship_2025.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Builder
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

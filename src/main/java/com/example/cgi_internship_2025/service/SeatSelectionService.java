@@ -1,4 +1,5 @@
 package com.example.cgi_internship_2025.service;
+
 import com.example.cgi_internship_2025.model.Seat;
 import com.example.cgi_internship_2025.repository.SeatRepository;
 import lombok.Data;
@@ -21,6 +22,8 @@ public class SeatSelectionService {
     //TODO: Ticket to ticketDto
 
     //TODO: Suggest seats.
+
+
 
 
 

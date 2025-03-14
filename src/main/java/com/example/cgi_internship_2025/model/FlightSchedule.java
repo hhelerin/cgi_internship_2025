@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @Data
@@ -44,4 +46,7 @@ public class FlightSchedule {
     @ManyToOne
     @JoinColumn(name = "aircraft_type", nullable = false)
     private AircraftType aircraftType;
+
+    @OneToMany(mappedBy = "flightSchedule")
+    private List<Flight> flights = new ArrayList<>();
 }

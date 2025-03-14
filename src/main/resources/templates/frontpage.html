@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>FlightLand - Choosing flights made easy</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+  <script src="/js/search.js"></script>
+</head>
+<body>
+
+<!-- Header with Logo and Menu -->
+<header style="text-align: center; padding: 20px;">
+  <div style="display: flex; align-items: center; justify-content: left;">
+    <img th:src="@{/logo.png}" alt="FlightLand Logo" style="width: 200px; margin-right: 10px;">
+    <div class="logo" >FlightLand</div>
+  </div>
+  <div class="slogan">Choosing flights made easy</div>
+  <nav style="margin-top: 15px;">
+    <ul class="menu">
+      <li>
+        <a th:href="@{/flightland/upcoming}">Flights</a>
+      </li>
+      <li>|</li>
+      <li>
+        <a th:href="@{/flightland/routes}">Routes</a>
+      </li>
+      <li>|</li>
+      <li>
+        <a th:href="@{/flightland/airports}">Airports</a>
+      </li>
+      <li>|</li>
+      <li>
+        <a th:href="@{/flightland/airlines}">Airlines</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<!-- Search Bar -->
+<section class="search-bar">
+  <form th:action="@{/flightland/search}" method="get">
+    <select id="from" name="from">
+      <option value="" disabled selected>From</option>
+      <option th:each="airport : ${airports}"
+              th:value="${airport.airportCode}"
+              th:text="${airport.name + ', ' + airport.airportCode + ', ' + airport.city + ', ' + airport.country}">
+      </option>
+    </select>
+
+    <select id="to" name="to">
+      <option value="" disabled selected>To</option>
+      <option th:each="airport : ${airports}"
+              th:value="${airport.airportCode}"
+              th:text="${airport.name + ', ' + airport.airportCode + ', ' + airport.city + ', ' + airport.country}">
+      </option>
+    </select>
+
+    <input type="date" id="date" name="date"
+           th:value="${#temporals.format(T(java.time.LocalDate).now().plusDays(1), 'yyyy-MM-dd')}" required>
+    <input type="number" id="passengers" name="passengers" value="1" min="1">
+    <button type="submit">Search Flights</button>
+  </form>
+</section>
+</body>
+</html>
