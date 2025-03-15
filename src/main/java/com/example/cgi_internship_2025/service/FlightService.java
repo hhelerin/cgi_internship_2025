@@ -1,5 +1,6 @@
 package com.example.cgi_internship_2025.service;
 
+import com.example.cgi_internship_2025.data.FlightGenerator;
 import com.example.cgi_internship_2025.dto.FlightDto;
 import com.example.cgi_internship_2025.dto.FlightWithSeatsDto;
 import com.example.cgi_internship_2025.dto.SeatDto;
@@ -23,6 +24,8 @@ public class FlightService {
     private FlightRepository flightRepository;
     @Autowired
     private SeatRepository seatRepository;
+    @Autowired
+    private FlightGenerator flightGenerator;
 
     public List<FlightDto> getAllUpcoming() {
         return flightRepository.findAllUpcomingFlightsInfo();
@@ -57,6 +60,10 @@ public class FlightService {
         flightWithSeatsDto.setSeatList(seatList);
 
         return flightWithSeatsDto;
+    }
+
+    public void generateFlightsForDate(LocalDate date){
+        flightGenerator.generateFutureFlights(date, date);
     }
 
 }

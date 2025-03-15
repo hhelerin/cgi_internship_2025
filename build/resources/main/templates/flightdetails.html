@@ -33,9 +33,9 @@
 <div class="seat-map">
   <div class="row" th:each="row : ${flight.seatList}">
     <div class="seat-row" th:each="seat : ${row}">
-      <div th:class="'seat ' + (${seat.available} ? 'available' : 'unavailable') + (seat.selected ? ' selected' : '')"
-           th:text="${seat.seatRowNumber + '' + seat.seatColumnChar}"></div>
-      <div th:if="${seat.aisle}" class="aisle"></div>
+      <div th:class="'seat ' + (${seat.available} ? 'available' : 'unavailable') + ' ' + (${seat.selected} ? 'selected' : '')"></div>
+     <div th:text="${seat.seatRowNumber + '' + seat.seatColumnChar}"></div>
+      <div th:if="${seat.isAisle}" class="aisle"></div>
     </div>
   </div>
 </div>

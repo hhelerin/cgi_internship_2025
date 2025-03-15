@@ -32,12 +32,16 @@ public class DataInitializer implements CommandLineRunner {
     private FlightScheduleRepository flightScheduleRepository;
     @Autowired
     private FlightGenerator flightGenerator;
+    @Autowired
+    private FlightRepository flightRepository;
 
     @Override
     public void run(String... args) {
         if (airlineRepository.count() == 0) {
             initializeDatabase();
-            flightGenerator.generateFutureFlights(LocalDate.now(), LocalDate.now().plusMonths(3));
+            if(flightRepository.count() == 0){
+                flightGenerator.generateFutureFlights(LocalDate.now(), LocalDate.now().plusMonths(3));
+            }
         }
     }
 

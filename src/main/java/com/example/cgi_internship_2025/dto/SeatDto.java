@@ -21,5 +21,6 @@ public class SeatDto {
     private boolean powerPort;
     private boolean babyBassinet;
     private boolean available;
+    private boolean selected = false;
 }
 

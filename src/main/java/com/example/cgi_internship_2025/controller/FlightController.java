@@ -42,6 +42,10 @@ public class FlightController {
         List<FlightDto> flights;
         if (from == null && to == null) {
             flights = flightService.searchFlightsByDate(date, passengers);
+            if(flights.isEmpty()){
+                flightService.generateFlightsForDate(date);
+            }
+            flights = flightService.searchFlightsByDate(date, passengers);
         } else if (from != null && to == null) {
             flights = flightService.searchFlightsFrom(from, date, passengers);
         } else if (from == null) {
