@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -46,6 +47,15 @@ public class FlightService {
     public List<FlightDto> searchFlightsTo(String to, LocalDate date, int passengers) {
         return flightRepository.findByToAndDate(to, date, passengers);
     }
+
+    public List<FlightDto> searchFlightsByRoute(Long routeId, int passengers) {
+        return flightRepository.findByRoute(routeId, passengers);
+    }
+
+    public List<FlightDto> filterFlights(String from, String to, LocalDate date, LocalTime departureTime, Double maxPrice) {
+        return flightRepository.findFlightsWithFilters(from, to, date, departureTime, maxPrice);
+    }
+
 
     public FlightWithSeatsDto getFlightWitSeatsDtoById(Long id) {
         FlightWithSeatsDto flightWithSeatsDto = flightRepository.getFlightWithSeatsDtoById(id)

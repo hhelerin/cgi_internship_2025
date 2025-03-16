@@ -75,5 +75,6 @@ The database consists of the following entities:
    
 ## Project development process
 Author: Helerin Heinsalu  
-Time spent: 
+Time spent: about 30 hours   
+  
 Read about the development process from the project diary (written in Estonian), found in the docs folder. 

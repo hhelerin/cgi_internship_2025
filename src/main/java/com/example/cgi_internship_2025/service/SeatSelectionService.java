@@ -19,7 +19,6 @@ public class SeatSelectionService {
     //TODO: Reserve seats. In flightID, list of seatDtoID-s, out list of ticketDto-s.
     //      From the flightID, create flightWithSeatsDto. Go through the seatDto-s in flightWithSeatsDto,
 
-    //TODO: Ticket to ticketDto
 
     //TODO: Suggest seats.
 

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RouteDto {
+    private Long routeId;
     private String fromAirportCode;
     private String fromAirportName;
     private String toAirportCode;

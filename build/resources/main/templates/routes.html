@@ -33,7 +33,7 @@
       <small th:text="${routeDto.toAirportName}"></small>
     </td>
     <td th:text="${routeDto.airline}"></td>
-    <td><a th:href="@{/flightland/}">
+    <td><a th:href="@{/flightland/route/{routeId}(routeId=${routeDto.getRouteId()})}">
       <button>See flights</button>
     </a></td>
 
@@ -41,6 +41,6 @@
   </tbody>
 </table>
 
-<a th:href="@{/flightland/}">Back to Home</a>
+<a class="menu" th:href="@{/flightland}">Back to Home</a>
 </body>
 </html>

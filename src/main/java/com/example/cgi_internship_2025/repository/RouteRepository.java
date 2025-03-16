@@ -12,7 +12,7 @@ public interface RouteRepository extends JpaRepository<Route, Long> {
 
     List<Route> findByAirline(Airline airline);
 
-    @Query("SELECT new com.example.cgi_internship_2025.dto.RouteDto(a1.airportCode, a1.name, " +
+    @Query("SELECT new com.example.cgi_internship_2025.dto.RouteDto(r.id, a1.airportCode, a1.name, " +
             "a2.airportCode, a2.name, aa.name) " +
             "FROM Route r " +
             "JOIN Airport a1 ON r.fromAirport.id = a1.id " +

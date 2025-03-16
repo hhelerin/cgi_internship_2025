@@ -3,10 +3,44 @@
 <head>
   <title>Flights</title>
   <link rel="stylesheet" th:href="@{/styles.css}">
-
 </head>
 <body>
 <h1>Upcoming flights</h1>
+<a class="menu" th:href="@{/flightland/}">Back</a>
+
+
+<div class="filter-bar">
+  <form th:action="@{/flightland/filter}" method="get">
+
+    <label for="departureAirport">From:</label>
+    <select id="departureAirport" name="departureAirport">
+      <option value="" selected>Any</option>
+      <option th:each="airport : ${departureAirports}"
+              th:value="${airport}"
+              th:text="${airport}"></option>
+    </select>
+
+    <label for="arrivalAirport">To:</label>
+    <select id="arrivalAirport" name="arrivalAirport">
+      <option value="" selected>Any</option>
+      <option th:each="airport : ${arrivalAirports}"
+              th:value="${airport}"
+              th:text="${airport}"></option>
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date">
+
+    <label for="departureTime">Time (HH:MM):</label>
+    <input type="time" id="departureTime" name="departureTime">
+
+    <label for="maxPrice">Max Price:</label>
+    <input type="number" id="maxPrice" name="maxPrice" placeholder="Any">
+
+    <button type="submit">Apply Filters</button>
+    <button type="reset">Reset</button>
+  </form>
+</div>
 
 <table class="table">
   <thead>
@@ -15,6 +49,7 @@
     <th>From</th>
     <th>To</th>
     <th>Date</th>
+    <th>Time</th>
     <th>Price</th>
     <th>Available Seats</th>
     <th>Action</th>
@@ -22,7 +57,7 @@
   </thead>
   <tbody>
   <tr th:if="${flights.empty}">
-    <td colspan="7" style="text-align: center; padding: 20px;">
+    <td colspan="8" style="text-align: center; padding: 20px;">
       No flights available. Try searching with different criteria.
     </td>
   </tr>
@@ -30,13 +65,14 @@
     <td th:text="${flightDto.getFlightNumber()}"></td>
     <td>
       <div th:text="${flightDto.getDepartureAirport()}"></div>
-      <small th:text="${flightDto.getDepartureAirportName()}" ></small>
+      <small th:text="${flightDto.getDepartureAirportName()}"></small>
     </td>
     <td>
       <div th:text="${flightDto.getArrivalAirport()}"></div>
-      <small th:text="${flightDto.getArrivalAirportName()}" ></small>
+      <small th:text="${flightDto.getArrivalAirportName()}"></small>
     </td>
     <td th:text="${flightDto.getDepartureDate()}"></td>
+    <td th:text="${flightDto.getDepartureTime()}"></td>
     <td th:text="${flightDto.getCalculatedPrice()}"></td>
     <td th:text="${flightDto.getAvailableSeats()}"></td>
     <td>
@@ -48,6 +84,6 @@
   </tbody>
 </table>
 
-<a th:href="@{/flightland/}">Back to Search</a>
+<a class="menu" th:href="@{/flightland/}">Back to Search</a>
 </body>
 </html>
