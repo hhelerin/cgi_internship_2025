@@ -39,9 +39,9 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
         if (airlineRepository.count() == 0) {
             initializeDatabase();
-            if(flightRepository.count() == 0){
-                flightGenerator.generateFutureFlights(LocalDate.now(), LocalDate.now().plusMonths(3));
             }
+        if(flightRepository.count() == 0){
+        flightGenerator.generateFutureFlights(LocalDate.now(), LocalDate.now().plusMonths(3));
         }
     }
 
@@ -76,14 +76,15 @@ public class DataInitializer implements CommandLineRunner {
         Route route7 = new Route(null, "FR 5414", airport1, airport6, 120, airline2, null);
         Route route8 = new Route(null, "FR 5028", airport9, airport1, 100, airline2, null);
         Route route9 = new Route(null, "SK 6627", airport3, airport5, 75, airline4, null);
+        Route route10 = new Route(null, "AF 9687", airport5, airport8, 195, airline5, null);
 
-        routeRepository.saveAll(List.of(route1, route2, route3, route4, route5, route6, route7, route8, route9));
+        routeRepository.saveAll(List.of(route1, route2, route3, route4, route5, route6, route7, route8, route9, route10));
 
         airline1.getRoutes().add(route5);
         airline2.getRoutes().addAll(List.of(route7, route8));
         airline3.getRoutes().addAll(List.of(route1, route2));
         airline4.getRoutes().addAll(List.of(route3, route9));
-        airline5.getRoutes().addAll(List.of(route4, route6));
+        airline5.getRoutes().addAll(List.of(route4, route6, route10));
 
         airport1.getDepartingRoutes().addAll(List.of(route1, route2, route3, route5, route7));
         airport1.getArrivingRoutes().add(route8);
@@ -97,6 +98,8 @@ public class DataInitializer implements CommandLineRunner {
         airport7.getDepartingRoutes().add(route4);
         airport8.getArrivingRoutes().add(route6);
         airport9.getDepartingRoutes().add(route8);
+        airport5.getDepartingRoutes().add(route10);
+        airport8.getArrivingRoutes().add(route10);
 
         AircraftType embraer = new AircraftType(null, "Embraer E-190", "ERJ-190", "Manu", "Layout 1", null, new ArrayList<>());
         AircraftType boeing = new AircraftType(null, "Boeing 737-700", "737-700", "Boeing", "Layout 2", null, new ArrayList<>());
@@ -198,8 +201,9 @@ public class DataInitializer implements CommandLineRunner {
         FlightSchedule fs8 = new FlightSchedule(null, route4, "1234567", LocalTime.parse("18:35"), LocalTime.parse("20:15"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
         FlightSchedule fs9 = new FlightSchedule(null, route5, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
         FlightSchedule fs10 = new FlightSchedule(null, route5, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("13:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
+        FlightSchedule fs11 = new FlightSchedule(null, route10, "1234-67", LocalTime.parse("16:15"), LocalTime.parse("18:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 269, embraer, new ArrayList<>());
 
-        flightScheduleRepository.saveAll(List.of(fs1, fs2, fs3, fs4, fs5, fs6, fs7, fs8, fs9, fs10));
+        flightScheduleRepository.saveAll(List.of(fs1, fs2, fs3, fs4, fs5, fs6, fs7, fs8, fs9, fs10, fs11));
 
     }
 

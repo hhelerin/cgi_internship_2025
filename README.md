@@ -49,6 +49,8 @@ The database consists of the following entities:
 - **Airport**: Represents departure and arrival airports.
 - **Airline**: Stores airline details and associations with their active routes.
 - **Ticket**: Marks a certain seat being taken on a certain flight.
+  
+See the detailed entity relationship diagram in the docs folder.  
 
 ## Getting Started
 

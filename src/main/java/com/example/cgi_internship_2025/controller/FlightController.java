@@ -1,21 +1,14 @@
 package com.example.cgi_internship_2025.controller;
 
-import com.example.cgi_internship_2025.dto.AirportDto;
-import com.example.cgi_internship_2025.dto.FlightDto;
-import com.example.cgi_internship_2025.dto.FlightWithSeatsDto;
-import com.example.cgi_internship_2025.dto.RouteDto;
+import com.example.cgi_internship_2025.dto.*;
 import com.example.cgi_internship_2025.service.AirportService;
 import com.example.cgi_internship_2025.service.FlightService;
 import com.example.cgi_internship_2025.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -125,9 +118,35 @@ public class FlightController {
         return "flightdetails";
     }
 
-    @GetMapping("/{flightId}/details")
-    public ResponseEntity<FlightWithSeatsDto> getFlightDetails(@PathVariable Long flightId) {
-        FlightWithSeatsDto flightDetails = flightService.getFlightWitSeatsDtoById(flightId);
-        return ResponseEntity.ok(flightDetails);
+    @GetMapping("/seatProperties")
+    @ResponseBody
+    public String seatProperties(
+            @RequestParam("rowNumber") int rowNumber,
+            @RequestParam("columnChar") char columnChar,
+            @RequestParam("seatClass") String seatClass,
+            @RequestParam("reclineType") String reclineType,
+            @RequestParam("window") boolean window,
+            @RequestParam("aisle") boolean aisle,
+            @RequestParam("emergencyExit") boolean emergencyExit,
+            @RequestParam("tv") boolean tv,
+            @RequestParam("powerPort") boolean powerPort,
+            @RequestParam("babyBassinet") boolean babyBassinet,
+            @RequestParam("available") boolean available
+    ) {
+        return String.join("; ",
+                "Row: " + rowNumber,
+                "Column: " + columnChar,
+                "Class: " + seatClass,
+                "Recline: " + reclineType,
+                "Window: " + (window ? "Yes" : "No"),
+                "Aisle: " + (aisle ? "Yes" : "No"),
+                "Emergency Exit: " + (emergencyExit ? "Yes" : "No"),
+                "TV: " + (tv ? "Yes" : "No"),
+                "Power Port: " + (powerPort ? "Yes" : "No"),
+                "Baby Bassinet: " + (babyBassinet ? "Yes" : "No"),
+                "Available: " + (available ? "Yes" : "No")
+        );
     }
+
+
 }

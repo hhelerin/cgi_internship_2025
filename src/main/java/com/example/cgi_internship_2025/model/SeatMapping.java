@@ -36,6 +36,6 @@ public class SeatMapping {
 
     private String additionalInfo;
 
-    @OneToMany(mappedBy = "seatMapping")
+    @OneToMany(mappedBy = "seatMapping", fetch = FetchType.EAGER)
     private List<Ticket> tickets = new ArrayList<>();
 }

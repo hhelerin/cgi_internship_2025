@@ -8,10 +8,10 @@
 <h1>Upcoming flights</h1>
 <a class="menu" th:href="@{/flightland/}">Back</a>
 
-<!-- Filter Bar -->
+
 <div class="filter-bar">
   <form th:action="@{/flightland/filter}" method="get">
-    <!-- Departure Airport Filter -->
+
     <label for="departureAirport">From:</label>
     <select id="departureAirport" name="departureAirport">
       <option value="" selected>Any</option>
@@ -20,7 +20,6 @@
               th:text="${airport}"></option>
     </select>
 
-    <!-- Arrival Airport Filter -->
     <label for="arrivalAirport">To:</label>
     <select id="arrivalAirport" name="arrivalAirport">
       <option value="" selected>Any</option>
@@ -29,15 +28,12 @@
               th:text="${airport}"></option>
     </select>
 
-    <!-- Date Filter -->
     <label for="date">Date:</label>
     <input type="date" id="date" name="date">
 
-    <!-- Departure Time Filter -->
     <label for="departureTime">Time (HH:MM):</label>
     <input type="time" id="departureTime" name="departureTime">
 
-    <!-- Price Range Filter -->
     <label for="maxPrice">Max Price:</label>
     <input type="number" id="maxPrice" name="maxPrice" placeholder="Any">
 
@@ -46,7 +42,6 @@
   </form>
 </div>
 
-<!-- Flight List -->
 <table class="table">
   <thead>
   <tr>

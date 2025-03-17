@@ -10,7 +10,7 @@ import lombok.Data;
 public class SeatDto {
     private Long seatingPlanId;
     private Long flightId;
-    private int seatRowNumber;
+    private Integer seatRowNumber;
     private char seatColumnChar;
     private boolean isWindow;
     private boolean isAisle;
@@ -22,5 +22,6 @@ public class SeatDto {
     private boolean babyBassinet;
     private boolean available;
     private boolean selected = false;
+
 }
 

@@ -7,6 +7,8 @@
 <body>
 <header>
   <h1 th:text="'Flight ' + ${flight.flightNumber} + ' Details'"></h1>
+  <h3 th:text="'From ' + ${flight.getDepartureAirportCode()} + ' to ' + ${flight.getArrivalAirportCode()} +
+  ' on ' + ${flight.getDate()} +' at ' + ${flight.getDepartureTime()}"></h3>
   <div class="passenger-selection">
     <label for="passengerCount">Passengers:</label>
     <button type="button" onclick="decreasePassengers()">-</button>
@@ -33,12 +35,20 @@
 <div class="seat-map">
   <div class="row" th:each="row : ${flight.seatList}">
     <div class="seat-row" th:each="seat : ${row}">
-      <div th:class="'seat ' + (${seat.available} ? 'available' : 'unavailable') + ' ' + (${seat.selected} ? 'selected' : '')"></div>
-     <div th:text="${seat.seatRowNumber + '' + seat.seatColumnChar}"></div>
-      <div th:if="${seat.isAisle}" class="aisle"></div>
+      <div th:class="'seat ' + (${seat.available} ? 'available' : 'unavailable') + ' ' + (${seat.selected} ? 'selected' : '')"
+           th:attr="data-properties='Row: ' + ${seat.seatRowNumber} + ', Seat: ' + ${seat.seatColumnChar} + ', Class: ' + ${seat.seatClass} + ', Recline: ' + ${seat.reclineType} + ', Window: ' + ${seat.window} + ', Aisle: ' + ${seat.aisle} + ', Emergency Exit: ' + ${seat.emergencyExit} + ', TV: ' + ${seat.tv} + ', Power: ' + ${seat.powerPort} + ', Bassinet: ' + ${seat.babyBassinet} + ', Available: ' + ${seat.available}"
+           onmouseover="showSeatInfo(event)"
+           onmouseout="hideSeatInfo()">
+        <div th:text="${seat.seatRowNumber + ''} + ${seat.seatColumnChar + ''}"></div>
+      </div>
+
     </div>
   </div>
 </div>
+
+<div id="seatInfo" class="seat-info" style="display: none;"></div>
+
+<script src="/scripts/seat-info.js"></script>
 
 <button>Confirm Selection</button>
 </body>
