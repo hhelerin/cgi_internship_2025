@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -41,22 +40,12 @@ public class FlightGenerator{
             LocalDate date = start;
             while (!date.isAfter(end)) {
                 if (matchesSchedule(schedule, date)) {
-                    // Generate the original flight
                     Flight flight = new Flight(null, date, 0, 0, new ArrayList<>(), schedule, null);
                     flight.setAmountOfSeats(seatMappings.size());
                     List<Ticket> tickets = generateRandomTickets(flight, seatMappings);
                     flight.setAvailableSeats(flight.getAmountOfSeats()-tickets.size());
                     flightRepository.save(flight);
                     ticketRepository.saveAll(tickets);
-
-                    // Generate the return flight (2 hours after the original)
-                    LocalDateTime returnDateTime = LocalDateTime.of(date, schedule.getDepartureTime()).plusHours(2);
-                    Flight returnFlight = new Flight(null, returnDateTime.toLocalDate(), 0, 0, new ArrayList<>(), schedule, null);
-                    returnFlight.setAmountOfSeats(seatMappings.size());
-                    List<Ticket> returnTickets = generateRandomTickets(returnFlight, seatMappings);
-                    returnFlight.setAvailableSeats(returnFlight.getAmountOfSeats()-tickets.size());
-                    flightRepository.save(returnFlight);
-                    ticketRepository.saveAll(returnTickets);
                 }
                 date = date.plusDays(1);
             }
@@ -71,7 +60,7 @@ public class FlightGenerator{
             Ticket ticket = new Ticket(null, flight, seatMappings.get(i));
             tickets.add(ticket);
             seatMappingRepository.addTicket(seatMappings.get(i), ticket);
-            i = i + random.nextInt(0,4);
+            i = i + random.nextInt(1,4);
         }
         return tickets;
     }

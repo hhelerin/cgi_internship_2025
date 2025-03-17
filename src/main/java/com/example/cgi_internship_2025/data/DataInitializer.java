@@ -202,8 +202,9 @@ public class DataInitializer implements CommandLineRunner {
         FlightSchedule fs9 = new FlightSchedule(null, route5, "1-3-5-7", LocalTime.parse("07:55"), LocalTime.parse("09:20"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
         FlightSchedule fs10 = new FlightSchedule(null, route5, "-2-4-6-", LocalTime.parse("12:30"), LocalTime.parse("13:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 129, embraer, new ArrayList<>());
         FlightSchedule fs11 = new FlightSchedule(null, route10, "1234-67", LocalTime.parse("16:15"), LocalTime.parse("18:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 269, embraer, new ArrayList<>());
+        FlightSchedule fs12 = new FlightSchedule(null, route6, "1234567", LocalTime.parse("08:30"), LocalTime.parse("09:55"), LocalDate.now(), LocalDate.of(9999, 12, 31), 229, embraer, new ArrayList<>());
 
-        flightScheduleRepository.saveAll(List.of(fs1, fs2, fs3, fs4, fs5, fs6, fs7, fs8, fs9, fs10, fs11));
+        flightScheduleRepository.saveAll(List.of(fs1, fs2, fs3, fs4, fs5, fs6, fs7, fs8, fs9, fs10, fs11, fs12));
 
     }
 
