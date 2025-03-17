@@ -75,7 +75,8 @@ Vaata andmebaasiskeemi kataloogis docs.
 	istekohtade soovitamist ja broneerimist.
 
 ## 5) Controllerite ja teenuskihi äriloogika disain
-	   
+- FlightController seob lennuinfoga seotud päringud
+- SeatSelectionController tegeleb istekohtade valimisega seotud päringutega  
 	   
 ## Vajalikud meetodid rakenduses:
 - hinna dünaamiline arvutamine
@@ -90,6 +91,10 @@ Vaata andmebaasiskeemi kataloogis docs.
 - võtta kasutusele logimine sujuvamaks arenduseks
 - pika tabeli lehekülgedeks jaotamine
 - korraliku api-ga suhtleva kliendi tegemine (Õpime seada käesoleval semestril Javascripti ja typescripti, Reactiga)
+- Rakenduse paigutamine Dockeri konteinerisse - seekord ei jäänud aega seda uurida
+- Projekt ei saanud lõplikult valmis (ei jõudnud istekohtade valimist esitamise ajaks realiseerida),  
+	kuid kuna projekt on huvitav ja tahaksin harjutada, siis kavatsen sellega jooksvalt edasi tegeleda.  
+  	Tahaksin realiseerida istekohtade soovitamiseks võimaluse valida eelistused koos prioriteetidega.
 
 ## Lõppsõna
 Kasutasin OpenAI GPT-4 keelemudelit enamasti selleks, et uurida parimate praktikate kohta, samuti sain abi jpa ja thymeleaf'i süntaksi asjus.       
